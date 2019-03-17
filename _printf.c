@@ -21,7 +21,7 @@ int     _printf(const char *format, ...)
 		return (0);
 	/*set buff elements to 0*/
 	memset((void *)buff, 0, 1024);
-	/* get printed characters from print function */
+	/* get # of printed characters from print function */
 	printed = print((char *)format, list, buff);
 	return (printed);
 }
