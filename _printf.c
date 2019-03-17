@@ -14,7 +14,7 @@ int     _printf(const char *format, ...)
 	va_list list;
 	va_list error_check;
 
-	va_start(list, format);	
+	va_start(list, format);
 	/* error check */
 	va_copy(error_check, list);
 	if (error((char *)format, error_check))
@@ -23,5 +23,7 @@ int     _printf(const char *format, ...)
 	memset((void *)buff, 0, 1024);
 	/* get # of printed characters from print function */
 	printed = print((char *)format, list, buff);
+	if (printed == -1)
+		return (0);
 	return (printed);
 }
