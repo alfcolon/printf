@@ -13,29 +13,29 @@
 
 void cspec_o(void *val, char *buffer)
 {
-  unsigned int *valu = val;
-  unsigned int value = *valu;
-  char tmp_char;
-  int tmp_value;
+	unsigned int *valu = val;
+	unsigned int value = *valu;
+	char tmp_char;
+	int tmp_value;
 
-  char *st = buffer;
-  char *end = buffer;
-  char *digits = "01234567";
+	char *st = buffer;
+	char *end = buffer;
+	char *digits = "01234567";
 
-  do {
-    tmp_value = value;
-    value /= 8;
-    *st = digits[tmp_value % 8];
-    st++;
-  } while (value);
+	do {
+		tmp_value = value;
+		value /= 8;
+		*st = digits[tmp_value % 8];
+		st++;
+	} while (value);
 
-  *st = '\0';
-  st--;
+	*st = '\0';
+	st--;
 
-  while (end < st)
-  {
-    tmp_char = *st;
-    *st-- = *end;
-    *end++ = tmp_char;
-  }
+	while (end < st)
+	{
+	tmp_char = *st;
+	*st-- = *end;
+	*end++ = tmp_char;
+	}
 }
