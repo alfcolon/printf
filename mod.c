@@ -14,6 +14,10 @@ void (*mod(char *s))(void *)
 		{'s', cspec_s},
 		{'d', spec_num},
 		{'i', spec_num},
+		{'u', spec_num},
+		{'o', cspec_o},
+		{'x', cspec_x},
+		{'X', cspec_X},
 		{NULL, NULL}
 	};
 	int i;
