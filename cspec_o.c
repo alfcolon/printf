@@ -17,9 +17,9 @@ void cspec_o(void *val, char *buffer)
 	unsigned int value = *valu;
 	char tmp_char;
 	int tmp_value;
-
 	char *st = buffer;
 	char *end = buffer;
+
 	char *digits = "01234567";
 
 	do {
@@ -29,7 +29,6 @@ void cspec_o(void *val, char *buffer)
 		st++;
 	} while (value);
 
-	*st = '\0';
 	st--;
 
 	while (end < st)
