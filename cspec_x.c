@@ -33,8 +33,10 @@ void cspec_x(void *val, char *buffer)
 
 	while (end < st)
 	{
-	tmp_char = *st;
-	*st-- = *end;
-	*end++ = tmp_char;
+		tmp_char = *st;
+		*st = *end;
+		st--;
+		*end = tmp_char;
+		end++;
 	}
 }
