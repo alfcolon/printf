@@ -1,9 +1,8 @@
-#include "holberton.h"
+#include "printf.h"
 /**
  * print - prints format string and expanded conversion specifiers
  * @format: holds text and connversion specifiers
- * @list: variadic arguments
- * @buff: container for printing
+ * @...: variadic arguments
  *
  * Description: checks for errror, prints buff, returns sum
  * Return: sum of bytes written
