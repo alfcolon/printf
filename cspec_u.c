@@ -33,14 +33,14 @@ void cspec_u(void *val, char *buffer)
 		value /= 10;
 	} while (value);
 
+	*st = '\0';
 	st--;
 
-	while (end < st)
+	while (*end)
 	{
-		tmp_char = *st;
-		*st = *end;
+		update_buff(st, buffer, 1);
 		st--;
-		*end = tmp_char;
 		end++;
 	}
+	free(string);
 }
