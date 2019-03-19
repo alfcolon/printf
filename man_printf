@@ -62,6 +62,8 @@ _printf("Plan %c failed; Here's Plan %c", failed_plan, new_plan);
 printf(1), printf(3), stdarg(3)
 .SH BUGS
 \fB_printf\fR does not correctly handle multibyte characters in the format argument.
+.SH CAVEATS
+\fI_printf\fR does not handle flag characters, field width, precision, or length modifiers that the \fIprintf\fR standard library function can. It is also limited in the amount of format specifiers it handles when compared to aforementioned standard library function.
 .SH AUTHOR
 Alfredo Colon, Julienne Tesoro
 
