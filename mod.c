@@ -10,14 +10,14 @@ int (*mod(char cspec))(void *arg, char buff[BUFF_SIZE])
 {
 	int	i;
 	t_array	arr[] = {
-		{'c', cspec_c},
-		{'s', cspec_s},
-		{'d', cspec_d_i},
-		{'i', cspec_d_i},
-		{'u', cspec_num},
-		{'o', cspec_o},
-		{'x', cspec_x},
-		{'X', cspec_X},
+		{"c", cspec_c},
+		{"s", cspec_s},
+		{"d", cspec_d_i},
+		{"i", cspec_d_i},
+		{"u", cspec_u},
+		{"o", cspec_o},
+		{"x", cspec_x},
+		{"X", cspec_X},
 		{NULL, NULL}
 	};
 	/* loop through array of structs */

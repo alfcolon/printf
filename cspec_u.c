@@ -1,47 +1,26 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
 #include "holberton.h"
-
 /**
- * cspec_u - Handle unsigned format specifiers
- * @val: Unsigned int to copy into buffer
- * @buffer: Buffer to copy string to
+ * cspec_u - sends unsigned int and sends to buff
+ * @arg: variadic argument
+ * @buff: temp array for printing
  *
- * Return: None
+ * Return: # of chars printed
  */
-
-void cspec_u(void *val, char *buffer)
+int     cspec_u(void *arg, char buff[BUFF_SIZE])
 {
-	unsigned int *valu = val;
-	unsigned int value = *valu;
+	unsigned int	i, *n;
+	char	arr[13];
 
-	char *st;
-	char *end;
-	char *string;
-	char *digits = "0123456789";
-
-	string = malloc(32 * sizeof(unsigned int));
-	if (!string)
-		exit(1);
-
-	st = string;
-	end = string;
-
-	do {
-		*st = digits[value % 10];
-		st++;
-		value /= 10;
-	} while (value);
-
-	*st = '\0';
-	st--;
-
-	while (*end)
-	{
-		update_buff(st, buffer, 1);
-		st--;
-		end++;
-	}
-	free(string);
+	/* NULL check */
+	if (!arg)
+		return (-1);
+	/* set array elements to 0 */
+	_memset(arr, 0, 13);
+	/* get n ready for "stringify'ing", esp. if its neg */
+	n = (unsigned int *) &arg;
+	for (i = 0; *n; *n /= 10, i++)
+		arr[i] = (*n % 10) + '0';
+	/* send array to be reversed */
+	update_buff(rev_string(arr), buff, i);
+	return (i);
 }

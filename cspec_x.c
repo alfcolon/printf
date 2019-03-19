@@ -1,47 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
 #include "holberton.h"
 
 /**
- * cspec_x - Handle lowercase hex specifiers
- * @val: Unsigned decimal int to convert to base-16
- * @buffer: Buffer to copy lowercase hex string into
+ * cspec_x - handle hexadecimal format specifiers
+ * @val: Unsigned decimal int to convert to base-8
+ * @buff: Buffer to copy octal string into
  *
  * Return: None
  */
-
-void cspec_x(void *val, char *buffer)
+int cspec_x(void *arg, char buff[BUFF_SIZE])
 {
-	unsigned int *valu = val;
-	unsigned int value = *valu;
-
-	char *st;
-	char *end;
-	char *string;
-	char *digits = "0123456789abcdef";
-
-	string = malloc(32 * sizeof(unsigned int));
-	if (!string)
-		exit(1);
-
-	st = string;
-	end = string;
-
-	do {
-		*st = digits[value % 16];
-		value /= 16;
-		st++;
-	} while (value);
-
-	*st = '\0';
-	st--;
-
-	while (*end)
-	{
-		update_buff(st, buffer, 1);
-		st--;
-		end++;
-	}
-	free(string);
+	unsigned int	i = 0, *n;
+	char		arr[11];
+	char		hex[16] = "0123456789abcdef";
+	/* NULL check */
+	if (!arg)
+		return (-1);
+	/* set array elements to 0 */
+	n = (unsigned int *) &arg;
+	/* converting unsigned int to octal */
+	for (; *n > 9; i++, *n /= 16)
+		arr[i] = hex[*n % 16];
+	arr[i] = (*n % 16) + '0';
+	/* send array to be reversed */
+	update_buff(rev_string(arr), buff, i);
+	return (0);
 }

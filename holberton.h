@@ -29,9 +29,13 @@ int	(*mod(char cspec))(void *arg, char buff[BUFF_SIZE]);
 int	cspec_b(void *arg, char buff[BUFF_SIZE]);
 int	cspec_c(void *arg, char buff[BUFF_SIZE]);
 int	cspec_d_i(void *arg, char buff[BUFF_SIZE]);
-int	cspec_s(void *arg, char buff[BUFF_SIZE]);
+int	cspec_o(void *arg, char buff[BUFF_SIZE]);
 int	cspec_r(void *arg, char buff[BUFF_SIZE]);
 int	cspec_R(void *arg, char buff[BUFF_SIZE]);
+int	cspec_s(void *arg, char buff[BUFF_SIZE]);
+int	cspec_u(void *arg, char buff[BUFF_SIZE]);
+int	cspec_x(void *arg, char buff[BUFF_SIZE]);
+int	cspec_X(void *arg, char buff[BUFF_SIZE]);
 /* general helper functions */
 int	_putchar(int c);
 void	_memset(char *s, char b, int n);
