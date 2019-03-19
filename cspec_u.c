@@ -27,12 +27,11 @@ void cspec_u(void *val, char *buffer)
 	char *st = string;
 	char *end = string;
 
-	while (value)
-	{
+	do {
 		*st = digits[value % 10];
 		st++;
 		value /= 10;
-	}
+	} while (value);
 
 	st--;
 
