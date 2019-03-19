@@ -15,9 +15,9 @@ int	cspec_c(void *arg, char buff[BUFF_SIZE])
 		return (-1);
 	/* Cast */
 	s = (char *)arg;
-	/* Empty string/ Null terminator */
-	if (*s)
-		return (0);
+	/* non-printable char */
+	if (!*s)
+		return (1);
 	/* Update buffer */
 	update_buff(s, buff, 1);
 	return (1);
