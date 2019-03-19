@@ -28,20 +28,18 @@ void cspec_x(void *val, char *buffer)
 	char *end = string;
 
 	do {
-		tmp_value = value;
+		*st = digits[value % 16];
 		value /= 16;
-		*st = digits[tmp_value % 16];
 		st++;
 	} while (value);
 
+	*st = '\0';
 	st--;
 
-	while (end < st)
+	while (*end)
 	{
-		tmp_char = *st;
-		*st = *end;
+		update_buff(st, buffer, 1);
 		st--;
-		*end = tmp_char;
 		end++;
 	}
 	free(string);
