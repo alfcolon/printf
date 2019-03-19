@@ -8,7 +8,7 @@
  * Return: None
  */
 
-void conspec_c(void *c, char *buff)
+void cspec_c(void *c, char *buff)
 {
 	/* Cast void pointer to a char pointer */
 	char *ch = c;
