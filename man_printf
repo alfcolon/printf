@@ -13,9 +13,23 @@ Format specifiers are denoted with a modulo sign ("%") which is followed by a ch
 .PP
 Interpreted format specifiers are:
 .PP
-%c - arg printed as char
+%c - arg is printed as char
 .PP
-%s - arg printed as string
+%s - arg is printed as string
+.PP
+%d, %i - numeric arg is printed as an integer
+.PP
+%b - unsigned int arg is printed in binary
+.PP
+%u - int arg is printed as an unsigned int
+.PP
+%o - unsigned int arg is printed in base 8
+.PP
+%x, %X - unsigned int arg is printed in base 16 with lowercase and uppercase letter digits respectively
+.PP
+%r - print string arg in reverse
+.PP
+%R - print string arg in rot13
 .SH OPTIONS
 The nuseradd does not take any options, as of right now
 .SH SEE ALSO
