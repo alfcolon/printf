@@ -16,11 +16,16 @@ void cspec_x(void *val, char *buffer)
 	unsigned int *valu = val;
 	unsigned int value = *valu;
 	char tmp_char;
-	int tmp_value;
-	char *st = buffer;
-	char *end = buffer;
 
+	char *string;
 	char *digits = "0123456789abcdef";
+
+	string = malloc(32 * sizeof(unsigned int));
+	if (!string)
+		exit(1);
+
+	char *st = string;
+	char *end = string;
 
 	do {
 		tmp_value = value;
@@ -39,4 +44,5 @@ void cspec_x(void *val, char *buffer)
 		*end = tmp_char;
 		end++;
 	}
+	free(string);
 }
