@@ -15,8 +15,9 @@ void cspec_x(void *val, char *buffer)
 {
 	unsigned int *valu = val;
 	unsigned int value = *valu;
-	char tmp_char;
 
+	char *st;
+	char *end;
 	char *string;
 	char *digits = "0123456789abcdef";
 
@@ -24,8 +25,8 @@ void cspec_x(void *val, char *buffer)
 	if (!string)
 		exit(1);
 
-	char *st = string;
-	char *end = string;
+	st = string;
+	end = string;
 
 	do {
 		*st = digits[value % 16];
