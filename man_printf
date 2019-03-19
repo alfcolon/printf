@@ -7,6 +7,15 @@ _printf \- formmated output
 _printf format [arguments ...]
 .SH DESCRIPTION
 The _printf function formats and prints its arguments according to the format, which can contain three types of characters: plain characters, escape characters, and format specifiers. 
+Plain characters are printed to stdout as is. 
+Escape characters are denoted with a backslash ("\\") and are converted to their corresponding special characters (newline, tab, etc.) by the compiler prior to printing. 
+Format specifiers are denoted with a modulo sign ("%") which is followed by a character indicating how to print the corresponding argument (first specifier prints the first argument after format, second specifier prints the second argument after format, and so on).
+.PP
+Interpreted format specifiers are:
+.PP
+%c - arg printed as char
+.PP
+%s - arg printed as string
 .SH OPTIONS
 The nuseradd does not take any options, as of right now
 .SH SEE ALSO
