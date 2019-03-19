@@ -12,18 +12,14 @@ int     _printf(const char *format, ...)
 	char    buff[BUFF_SIZE];
 	int	printed = 0;
 	va_list list;
-	va_list error_check;
 
 	if (!format)
 		return (0);
 	va_start(list, format);
-	/* error check */
-	va_copy(error_check, list);
-	if (error((char *)format, error_check))
-		return (0);
 	/*set buff elements to 0*/
-	memset((void *)buff, 0, 1024);
+	_memset((void *)buff, 0, 1024);
 	/* get # of printed characters from print function */
 	printed = print((char *)format, list, buff);
+	va_end(list);
 	return (printed);
 }

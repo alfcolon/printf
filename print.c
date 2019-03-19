@@ -10,9 +10,7 @@
  */
 int     print(char *format, va_list list, char buff[BUFF_SIZE])
 {
-	int	total = 0;
-	int	printed = 0;
-	int	len = 0;
+	int	total = 0, printed = 0, len = 0;
 	char	c1, c2;
 
 	/* Printing loop*/
@@ -33,11 +31,13 @@ int     print(char *format, va_list list, char buff[BUFF_SIZE])
 		else
 		{
 			update_buff(&c1, buff, 1);
-			format++;
+			if (c1 == '%' && c2 == '%')
+				format += 2;
+			else
+				format++;
 			total++;
 		}
 	}
-	/* that one last print */
 	if (*buff)
 	{
 		for (len = 0; buff[len]; len++)

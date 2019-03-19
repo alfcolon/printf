@@ -33,6 +33,8 @@ int	cspec_s(void *arg, char buff[BUFF_SIZE]);
 int	cspec_r(void *arg, char buff[BUFF_SIZE]);
 int	cspec_R(void *arg, char buff[BUFF_SIZE]);
 /* general helper functions */
+int	_putchar(int c);
+void	_memset(char *s, char b, int n);
 char	*rot13(char *s);
 char	*rev_string(char *s);
 int	valid_cspec(char c);

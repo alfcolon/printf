@@ -20,7 +20,7 @@ void	update_buff(char *arg, char buff[BUFF_SIZE], int arglen)
 		write(1, buff, bufflen);
 		/* reset buff */
 		/* UPDATE ME */
-		memset(buff, 0, BUFF_SIZE);
+		_memset((char *)buff, 0, BUFF_SIZE);
 		bufflen = 0;
 	}
 	/* copy arg into buff for later printing, when buff is full */
