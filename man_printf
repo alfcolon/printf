@@ -14,7 +14,6 @@ Format specifiers are denoted with a modulo sign ("%") which is followed by a ch
 Interpreted format specifiers are:
 .PP
 %c - arg printed as char
-.PP
 %s - arg printed as string
 .SH OPTIONS
 The nuseradd does not take any options, as of right now

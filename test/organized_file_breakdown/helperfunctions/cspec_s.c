@@ -1,24 +1,23 @@
-#include "holberton.h"
+#include "printf.h"
 /**
- * cspec_c - adds char to buffer
+ * cspec_s - adds string to buffer w/ hex chars
  * @arg: va_arg
  * @buff: char array for printing
  *
  * Return: number of chars printed.
  */
-int	cspec_c(void *arg, char buff[BUFF_SIZE])
+int	cspec_s(void *arg, char buff[BUFF_SIZE])
 {
 	char	*s;
-
+	int	len;
+	
 	/* NULL check */
 	if (!arg)
 		return (-1);
 	/* Cast */
 	s = (char *)arg;
-	/* non-printable char */
-	if (!*s)
-		return (1);
+	len = _strlen(s);
 	/* Update buffer */
-	update_buff(s, buff, 1);
-	return (1);
+	update_buff(s, buff, len);
+	return (len);
 }
