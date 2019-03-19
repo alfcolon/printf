@@ -16,10 +16,16 @@ void cspec_o(void *val, char *buffer)
 	unsigned int *valu = val;
 	unsigned int value = *valu;
 	char tmp_char;
-	char *st = buffer;
-	char *end = buffer;
 
+	char *string;
 	char *digits = "01234567";
+
+	string = malloc(32 * sizeof(unsigned int));
+	if (!string)
+		exit(1);
+
+	char *st = string;
+	char *end = string;
 
 	do {
 		*st = digits[value % 8];
@@ -27,14 +33,14 @@ void cspec_o(void *val, char *buffer)
 		st++;
 	} while (value);
 
+	*st = '\0';
 	st--;
 
-	while (end < st)
+	while (*end)
 	{
-		tmp_char = *st;
-		*st = *end;
+		update_buff(st, buffer, 1);
 		st--;
-		*end = tmp_char;
 		end++;
 	}
+	free(string);
 }
