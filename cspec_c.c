@@ -12,7 +12,7 @@ void conspec_c(void *c, char *buff)
 {
 	/* Cast void pointer to a char pointer */
 	char *ch = c;
-	char cha = *c;
+	char cha = *ch;
 
 	/* Add char to the buffer */
 	update_buff(cha, buff, 1);
