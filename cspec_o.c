@@ -16,16 +16,14 @@ void cspec_o(void *val, char *buffer)
 	unsigned int *valu = val;
 	unsigned int value = *valu;
 	char tmp_char;
-	int tmp_value;
 	char *st = buffer;
 	char *end = buffer;
 
 	char *digits = "01234567";
 
 	do {
-		tmp_value = value;
+		*st = digits[value % 8];
 		value /= 8;
-		*st = digits[tmp_value % 8];
 		st++;
 	} while (value);
 
