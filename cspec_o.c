@@ -15,7 +15,6 @@ void cspec_o(void *val, char *buffer)
 {
 	unsigned int *valu = val;
 	unsigned int value = *valu;
-	char tmp_char;
 
 	char *st;
 	char *end;
