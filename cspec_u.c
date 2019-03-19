@@ -17,10 +17,15 @@ void cspec_u(void *val, char *buffer)
 	unsigned int value = *valu;
 	char tmp_char;
 
+	char *string;
 	char *digits = "0123456789";
 
-	char *st = buffer;
-	char *end = buffer;
+	string = malloc(32 * sizeof(unsigned int));
+	if (!string)
+		exit(1);
+
+	char *st = string;
+	char *end = string;
 
 	while (value)
 	{
