@@ -9,7 +9,7 @@
 int cspec_S(void *arg, char *buff)
 {
 	char	*s = !arg ? NULL : (char *)arg;
-	int	len = !s ? 0 : strlen(s);
+	int	len = !s ? 0 : _strlen(s);
 	char	arr[len * 5];
 	int	i;
 
@@ -19,7 +19,7 @@ int cspec_S(void *arg, char *buff)
 		update_buff("(null)", buff, 6);
 		return (6);
 	}
-	memset(arr, 0, len * 5);
+	_memset(arr, 0, len * 5);
 	for (i = 0; *s; s++)
 	{
 		if ((*s > 0 && *s < 32) || *s >= 127)
