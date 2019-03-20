@@ -13,7 +13,10 @@ int	cspec_s(void *arg, char buff[BUFF_SIZE])
 
 	/* NULL check */
 	if (!arg)
-		return (-1);
+	{
+		update_buff("(null)", buff, 6);
+		return (8);
+	}
 	/* Cast */
 	s = (char *)arg;
 	len = _strlen(s);

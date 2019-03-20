@@ -22,10 +22,9 @@ int     print(char *format, va_list list, char buff[BUFF_SIZE])
 		if (c1 == '%' && valid_cspec(c2))
 		{
 			printed = mod(c2)(va_arg(list, void *), buff);
-			if (printed == -1)
-				return (0);
 			total += printed;
 			format += 2;
+	//		printf("total:%d\nprinted:%d\n", total, printed);
 		}
 		/* use update buff incase the buff needs to be reset */
 		else
@@ -43,7 +42,6 @@ int     print(char *format, va_list list, char buff[BUFF_SIZE])
 		for (len = 0; buff[len]; len++)
 			;
 		write(1, buff, len);
-		total += len;
 	}
 	va_end(list);
 	return (total);

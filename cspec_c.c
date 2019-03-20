@@ -12,7 +12,7 @@ int	cspec_c(void *arg, char buff[BUFF_SIZE])
 
 	/* NULL check */
 	if (!arg)
-		return (-1);
+		return (1);
 	/* Cast */
 	s = (char *)arg;
 	/* non-printable char */

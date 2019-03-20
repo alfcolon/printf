@@ -13,7 +13,10 @@ int     cspec_d_i(void *arg, char buff[BUFF_SIZE])
 
 	/* NULL check */
 	if (!arg)
-		return (-1);
+	{
+		update_buff("0", buff, 1);
+		return (1);
+	}
 	/* set array elements to 0 */
 	_memset(arr, 0, 13);
 	/* get n ready for "stringify'ing", esp. if its neg */

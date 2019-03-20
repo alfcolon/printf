@@ -13,7 +13,10 @@ int     cspec_b(void *arg, char buff[BUFF_SIZE])
 	unsigned int   mag = 2147483648;
 
 	if (!arg)
-		return (-1);
+	{
+		update_buff("%b", buff, 2);
+		return (2);
+	}
 	n = (unsigned int *) &arg;
 	for (i = 0; i < 32; i++, mag >>= 1)
 		bin[i] = (*n & mag) ? '1' : '0';
