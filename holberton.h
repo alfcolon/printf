@@ -7,7 +7,7 @@
 #include <string.h>
 /* constants */
 #include <unistd.h>
-#include <ctype.h>
+#include <limits.h>
 
 /**
  * struct mods - struct
