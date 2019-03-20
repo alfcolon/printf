@@ -18,23 +18,23 @@
 typedef	struct mods
 {
 	char	*spec;
-	int	(*f)(void *, char buff[BUFF_SIZE]);
+	int	(*f)(void *, char *buff);
 }	t_array;
 
 int	_printf(const char *format, ...);
-int	print(char *format, va_list list, char buff[BUFF_SIZE]);
-int	(*mod(char cspec))(void *arg, char buff[BUFF_SIZE]);
+int	print(char *format, va_list list, char *buff);
+int	(*mod(char cspec))(void *arg, char *buff);
 /* helper mod functions */
-int	cspec_b(void *arg, char buff[BUFF_SIZE]);
-int	cspec_c(void *arg, char buff[BUFF_SIZE]);
-int	cspec_d_i(void *arg, char buff[BUFF_SIZE]);
-int	cspec_o(void *arg, char buff[BUFF_SIZE]);
-int	cspec_r(void *arg, char buff[BUFF_SIZE]);
-int	cspec_R(void *arg, char buff[BUFF_SIZE]);
-int	cspec_s(void *arg, char buff[BUFF_SIZE]);
-int	cspec_u(void *arg, char buff[BUFF_SIZE]);
-int	cspec_x(void *arg, char buff[BUFF_SIZE]);
-int	cspec_X(void *arg, char buff[BUFF_SIZE]);
+int	cspec_b(void *arg, char *buff);
+int	cspec_c(void *arg, char *buff);
+int	cspec_d_i(void *arg, char *buff);
+int	cspec_o(void *arg, char *buff);
+int	cspec_r(void *arg, char *buff);
+int	cspec_R(void *arg, char *buff);
+int	cspec_s(void *arg, char *buff);
+int	cspec_u(void *arg, char *buff);
+int	cspec_x(void *arg, char *buff);
+int	cspec_X(void *arg, char *buff);
 /* general helper functions */
 int	_putchar(int c);
 void	_memset(char *s, char b, int n);
@@ -42,6 +42,6 @@ char	*rot13(char *s);
 char	*rev_string(char *s);
 int	valid_cspec(char c);
 int	_strlen(char *s);
-void	update_buff(char *arg, char buff[BUFF_SIZE], int len);
+void	update_buff(char *arg, char *buff, int len);
 int	error(char *format, va_list copy);
 #endif

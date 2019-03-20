@@ -6,7 +6,7 @@
  * @arglen: len of arg
  *
  */
-void	update_buff(char *arg, char buff[BUFF_SIZE], int arglen)
+void	update_buff(char *arg, char *buff, int arglen)
 {
 	int	bufflen, i;
 
@@ -14,13 +14,13 @@ void	update_buff(char *arg, char buff[BUFF_SIZE], int arglen)
 	for (bufflen = 0; buff[bufflen]; bufflen++)
 		;
 	/* avoid seg faulting */
-	if (arglen + bufflen >= BUFF_SIZE)
+	if (arglen + bufflen >= 1024)
 	{
 		/* write out buff */
 		write(1, buff, bufflen);
 		/* reset buff */
 		/* UPDATE ME */
-		_memset((char *)buff, 0, BUFF_SIZE);
+		_memset((char *)buff, 0, 1024);
 		bufflen = 0;
 	}
 	/* copy arg into buff for later printing, when buff is full */

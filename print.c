@@ -8,7 +8,7 @@
  * Description: checks for errror, prints buff, returns sum
  * Return: sum of bytes written
  */
-int     print(char *format, va_list list, char buff[BUFF_SIZE])
+int     print(char *format, va_list list, char *buff)
 {
 	int	total = 0, printed = 0, len = 0;
 	char	c1, c2;

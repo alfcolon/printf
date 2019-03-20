@@ -9,7 +9,7 @@
  */
 int     _printf(const char *format, ...)
 {
-	char    buff[BUFF_SIZE];
+	char    buff[1024];
 	int	printed = 0;
 	va_list list;
 
