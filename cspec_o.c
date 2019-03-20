@@ -14,7 +14,10 @@ int	cspec_o(void *arg, char *buff)
 
 	/* NULL check */
 	if (!arg)
-		return (-1);
+	{
+		update_buff("0", buff, 1);
+		return (1);
+	}
 	/* set array elements to 0 */
 	n = (unsigned int *) &arg;
 	/* converting unsigned int to octal */
