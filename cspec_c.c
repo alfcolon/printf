@@ -6,7 +6,7 @@
  *
  * Return: number of chars printed.
  */
-int	cspec_c(void *arg, char buff[BUFF_SIZE])
+int	cspec_c(void *arg, char *buff)
 {
 	char	*s;
 
@@ -14,7 +14,7 @@ int	cspec_c(void *arg, char buff[BUFF_SIZE])
 	if (!arg)
 		return (1);
 	/* Cast */
-	s = (char *)arg;
+	s = (char *)&arg;
 	/* non-printable char */
 	if (!*s)
 		return (1);

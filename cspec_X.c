@@ -7,7 +7,7 @@
  *
  * Return: None
  */
-int	cspec_X(void *arg, char buff[BUFF_SIZE])
+int	cspec_X(void *arg, char *buff)
 {
 	unsigned int	i = 0, *n;
 	char		arr[11];

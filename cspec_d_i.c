@@ -6,7 +6,7 @@
  *
  * Return: # of chars printed
  */
-int     cspec_d_i(void *arg, char buff[BUFF_SIZE])
+int     cspec_d_i(void *arg, char *buff)
 {
 	int i, neg, *n;
 	char  arr[13];

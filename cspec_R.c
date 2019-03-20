@@ -6,7 +6,7 @@
  *
  * Return: number of chars printed.
  */
-int	cspec_R(void *arg, char buff[BUFF_SIZE])
+int	cspec_R(void *arg, char *buff)
 {
 	char	*s;
 	int	len;
