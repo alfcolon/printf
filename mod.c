@@ -13,11 +13,13 @@ int (*mod(char cspec))(void *arg, char *buff)
 	t_array	arr[] = {
 		{"b", cspec_b},
 		{"c", cspec_c},
-		{"s", cspec_s},
 		{"d", cspec_d_i},
 		{"i", cspec_d_i},
 		{"u", cspec_u},
 		{"o", cspec_o},
+		{"p", cspec_p},
+		{"s", cspec_s},
+		{"s", cspec_S},
 		{"x", cspec_x},
 		{"X", cspec_X},
 		{NULL, NULL}

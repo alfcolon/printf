@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "/holberton.h"
 /**
  * cspec_d_i - stringifies int and sends to buff
  * @arg: variadic argument
@@ -22,12 +22,12 @@ int     cspec_d_i(void *arg, char *buff)
 	/* get n ready for "stringify'ing", esp. if its neg */
 	n = (int *) &arg;
 	neg = *n < 0 ? 1 : 0;
-	*n = *n < 0 ? *n * -1 : *n;
 	for (i = 0; *n; *n /= 10, i++)
-		arr[i] = (*n % 10) + '0';
+		arr[i] = neg ? (*n % 10) * -1 + '0' : (*n % 10) + '0';
 	if (neg)
 		arr[i++] = '-';
 	/* send array to be reversed */
-	update_buff(rev_string(arr), buff, i);
+	rev_string(arr);
+	update_buff(arr, buff, i);
 	return (i);
 }
