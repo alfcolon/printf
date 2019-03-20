@@ -7,8 +7,7 @@
 #include <string.h>
 /* constants */
 #include <unistd.h>
-
-#define BUFF_SIZE 1024
+#include <ctypes.h>
 
 /**
  * struct mods - struct
