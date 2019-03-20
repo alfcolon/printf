@@ -2,26 +2,68 @@
 .\" Slack Julienne Tesoro or Alfredo Colon to correct errors or typos.
 .TH man 8 "17 March 2019" "1.0" "_printf man page"
 .SH NAME
-_printf \- formmated output
+\fB_printf\fR \- formatted output
 .SH SYNOPSIS
-_printf format [arguments ...]
+\fIint\fR \fB_printf\fR(\fIconst\fR \fIchar\fR \fI*\fR \fIformat\fR, \fI...\fR)
 .SH DESCRIPTION
-The _printf function formats and prints its arguments according to the format, which can contain three types of characters: plain characters, escape characters, and format specifiers.
-Plain characters are printed to stdout as is.
-Escape characters are denoted with a backslash ("\\") and are converted to their corresponding special characters (newline, tab, etc.) by the compiler prior to printing.
+The \fB_printf\fR function formats and prints its arguments to \fIstdout\fR according to the \fIformat\fR, which can contain three types of characters: plain characters, escape characters, and format specifiers. 
+.PP
+Plain characters are printed as is. 
+Escape characters are denoted with a backslash ("\\") and are converted to their corresponding special characters (newline, tab, etc.) by the compiler prior to printing. 
 Format specifiers are denoted with a modulo sign ("%") which is followed by a character indicating how to print the corresponding argument (first specifier prints the first argument after format, second specifier prints the second argument after format, and so on).
 .PP
 Interpreted format specifiers are:
 .PP
-%c - arg printed as char
-%s - arg printed as string
-.SH OPTIONS
-The nuseradd does not take any options, as of right now
+.B %c
+- arg is printed as char
+.PP
+.B %s
+- arg is printed as string
+.PP
+.B %d, %i
+- numeric arg is printed as an integer
+.PP
+.B %b
+- unsigned int arg is printed in binary
+.PP
+.B %u
+- int arg is printed as an unsigned int
+.PP
+.B %o
+- unsigned int arg is printed in base 8
+.PP
+.B %x, %X
+- unsigned int arg is printed in base 16 with lowercase and uppercase letter digits respectively
+.PP
+.B %r
+- print string arg in reverse
+.PP
+.B %R
+- print string arg in rot13
+.SH RETURN VALUES
+Upon succesful execution, \fB_printf\fR returns the total \fInumber of characters printed\fR to stdout. Otherwise, \fB_printf\fR will return a negative value.
+.SH EXAMPLES
+To print a date in the form "Tuesday, March 19, 2019", where \fIweekday\fR and \fImonth\fR are pointers to strings:
+.PP
+.nf
+.RS
+_printf("%s, %s &d, %d", weekday, month, day, year);
+.RE
+.fi
+.PP
+To print the string "Plan A failed; Here's Plan B", where \fIfailed_plan\fR and \fInew_plan\fR are variables of type char:
+.PP
+.nf
+.RS
+_printf("Plan %c failed; Here's Plan %c", failed_plan, new_plan);
+.RE
+.fi
 .SH SEE ALSO
-printf(1), printf(3)
+printf(1), printf(3), stdarg(3)
 .SH BUGS
-No known bugs.
+\fB_printf\fR does not correctly handle multibyte characters in the format argument.
+.SH CAVEATS
+\fB_printf\fR does not handle flag characters, field width, precision, or length modifiers that the \fBprintf\fR standard library function can. It is also limited in the amount of format specifiers it handles when compared to aforementioned standard library function.
 .SH AUTHOR
-Julienne Tesoro
-Alfredo Colon
+Alfredo Colon, Julienne Tesoro
 
