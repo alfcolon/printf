@@ -11,8 +11,12 @@ int	cspec_R(void *arg, char *buff)
 	char	*s;
 	int	len;
 
+	/* NULL check */
 	if (!arg)
-		return (-1);
+	{
+		update_buff("(null)", buff, 6);
+		return (6);
+	}
 	s = (char *)arg;
 	len = _strlen(s);
 	update_buff(rot13(s), buff, len);
