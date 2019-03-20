@@ -14,7 +14,7 @@ int     _printf(const char *format, ...)
 	va_list list;
 
 	if (!format)
-		return (0);
+		return (-1);
 	va_start(list, format);
 	/*set buff elements to 0*/
 	_memset((void *)buff, 0, 1024);
