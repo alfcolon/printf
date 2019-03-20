@@ -8,18 +8,21 @@
  */
 int     cspec_b(void *arg, char buff[BUFF_SIZE])
 {
-	unsigned int i, *n;
-	char  bin[32];
-	unsigned int   mag = 2147483648;
+	unsigned int	i, *n, mag = 2147483648;
+	char  		bin[33];
 
 	if (!arg)
 	{
-		update_buff("%b", buff, 2);
-		return (2);
+		update_buff("0", buff, 1);
+		return (1);
 	}
 	n = (unsigned int *) &arg;
-	for (i = 0; i < 32; i++, mag >>= 1)
+	_memset(bin, 0, 33);
+	while (!(*n & mag))
+		mag >>= 1;
+	printf("%u\n", mag);
+	for (i = 0; mag > 0; i++, mag >>= 1)
 		bin[i] = (*n & mag) ? '1' : '0';
-	update_buff(bin, buff, 32);
-	return (32);
+	update_buff(bin, buff, i);
+	return (i);
 }
