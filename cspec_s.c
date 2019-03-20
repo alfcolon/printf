@@ -15,7 +15,7 @@ int	cspec_s(void *arg, char *buff)
 	if (!arg)
 	{
 		update_buff("(null)", buff, 6);
-		return (8);
+		return (6);
 	}
 	/* Cast */
 	s = (char *)arg;
