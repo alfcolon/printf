@@ -9,7 +9,7 @@
 int     cspec_b(void *arg, char buff[BUFF_SIZE])
 {
 	unsigned int	i, *n, mag = 2147483648;
-	char  		bin[33];
+	char		bin[33];
 
 	if (!arg)
 	{

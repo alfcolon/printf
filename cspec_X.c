@@ -2,7 +2,7 @@
 
 /**
  * cspec_X - handle hexadecimal format specifiers
- * @val: Unsigned decimal int to convert to base-8
+ * @arg: Unsigned decimal int to convert to base-8
  * @buff: Buffer to copy octal string into
  *
  * Return: None
