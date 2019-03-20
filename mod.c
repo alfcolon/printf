@@ -19,7 +19,6 @@ int (*mod(char cspec))(void *arg, char *buff)
 		{"o", cspec_o},
 		{"p", cspec_p},
 		{"s", cspec_s},
-		{"s", cspec_S},
 		{"x", cspec_x},
 		{"X", cspec_X},
 		{NULL, NULL}
