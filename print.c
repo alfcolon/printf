@@ -24,7 +24,6 @@ int     print(char *format, va_list list, char buff[BUFF_SIZE])
 			printed = mod(c2)(va_arg(list, void *), buff);
 			total += printed;
 			format += 2;
-	//		printf("total:%d\nprinted:%d\n", total, printed);
 		}
 		/* use update buff incase the buff needs to be reset */
 		else
