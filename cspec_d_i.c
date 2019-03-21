@@ -1,15 +1,15 @@
 #include "holberton.h"
 /**
- * cspec_u - sends unsigned int and sends to buff
- * @list: va_list from which to pull uns int
+ * cspec_d_i - stringifies int and sends to buff
+ * @list: va_list to pull int from
  * @buff: temp array for printing
  *
  * Return: # of chars printed
  */
-int     cspec_u(va_list list, char *buff)
+int     cspec_d_i(va_list list, char *buff)
 {
-	unsigned int	i, n;
-	char	arr[13];
+	int i, neg, n;
+	char  arr[13];
 
 	/* NULL check */
 	if (!list)
@@ -20,15 +20,19 @@ int     cspec_u(va_list list, char *buff)
 	/* set array elements to 0 */
 	_memset(arr, 0, 13);
 	/* get n ready for "stringify'ing", esp. if its neg */
-	n = va_arg(list, unsigned int);
+	n = va_arg(list, int);
 	if (n == 0)
 	{
 		update_buff("0", buff, 1);
 		return (1);
 	}
+	neg = n < 0 ? 1 : 0;
 	for (i = 0; n; n /= 10, i++)
-		arr[i] = (n % 10) + '0';
+		arr[i] = neg ? (n % 10) * -1 + '0' : (n % 10) + '0';
+	if (neg)
+		arr[i++] = '-';
 	/* send array to be reversed */
-	update_buff(rev_string(arr), buff, i);
+	rev_string(arr);
+	update_buff(arr, buff, i);
 	return (i);
 }

@@ -1,18 +1,29 @@
 #include "holberton.h"
-
 /**
- * conspec_c - Add char to buffer
- * @c: Pointer to char
- * @buff: Buffer to put char into
+ * cspec_c - adds char to buffer
+ * @list: va_list to pull char from
+ * @buff: char array for printing
  *
- * Return: None
+ * Return: number of chars printed.
  */
-
-void cspec_c(void *c, char *buff)
+int	cspec_c(va_list list, char *buff)
 {
-	/* Cast void pointer to a char pointer */
-	char *ch = c;
+	char	s;
+	char *ptr;
 
-	/* Add char to the buffer */
-	update_buff(ch, buff, 1);
+	ptr = malloc(1);
+
+	/* NULL check */
+	if (!list)
+		return (1);
+	/* Cast */
+	s = va_arg(list, int);
+	*ptr = s;
+	/* non-printable char */
+	if (!s)
+		return (1);
+	/* Update buffer */
+	update_buff(ptr, buff, 1);
+	free(ptr);
+	return (1);
 }

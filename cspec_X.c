@@ -1,27 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
 #include "holberton.h"
 
 /**
- * cspec_X - Handle uppercase hex specifiers
- * @val: Unsigned decimal int to convert to base-16
- * @buffer: Buffer to copy uppercase hex string into
+ * cspec_X - handle hexadecimal format specifiers
+ * @list: va_list from which to pull unsigned decimal int to convert to base-8
+ * @buff: Buffer to copy octal string into
  *
  * Return: None
  */
-
-void cspec_X(void *val, char *buffer)
+int	cspec_X(va_list list, char *buff)
 {
-	unsigned int *valu = val;
-	unsigned int value = *valu;
+	unsigned int value = va_arg(list, unsigned int);
+	int count = 0;
 
 	char *st;
 	char *end;
 	char *string;
 	char *digits = "0123456789ABCDEF";
 
-	string = malloc(32 * sizeof(unsigned int));
+	string = malloc(32);
 	if (!string)
 		exit(1);
 
@@ -39,9 +35,11 @@ void cspec_X(void *val, char *buffer)
 
 	while (*end)
 	{
-		update_buff(st, buffer, 1);
+		update_buff(st, buff, 1);
 		st--;
 		end++;
+		count++;
 	}
 	free(string);
+	return (count);
 }
