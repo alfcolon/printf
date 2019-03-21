@@ -2,42 +2,35 @@
 
 /**
  * mod - Determine which function to use to process format specifier
- * @s: Pointer to '%' in format string
+ * @cspec: conversion specifier character
  *
  * Return: Pointer to function to use to process format specifier
  */
-
-void (*mod(char *s))(void *)
+int (*mod(char cspec))(va_list, char *)
 {
-	types t_array[] = {
-		{'c', cspec_c},
-		{'s', cspec_s},
-		{'d', spec_num},
-		{'i', spec_num},
-		{'u', spec_num},
-		{'o', cspec_o},
-		{'x', cspec_x},
-		{'X', cspec_X},
+	int	i;
+
+	t_array	arr[] = {
+		{"b", cspec_b},
+		{"c", cspec_c},
+		{"d", cspec_d_i},
+		{"i", cspec_d_i},
+		{"u", cspec_u},
+		{"o", cspec_o},
+		{"p", cspec_p},
+		{"s", cspec_s},
+		{"x", cspec_x},
+		{"X", cspec_X},
+		{"r", cspec_r},
+		{"R", cspec_R},
 		{NULL, NULL}
 	};
-	int i;
-
-	//loop through array of structs
-	while (i < 5)
+	/* loop through array of structs */
+	for (i = 0; arr[i].spec; i++)
 	{
-		// check if char after % matches char in struct
-		if (*(s + 1) == t_array[i].char)
-		{
-			// if yes return function for dealing w that data type
-			return(t_array.f);
-		}
+		if (cspec == *arr[i].spec)
+			/* if yes return function for dealing w that data type */
+			return (arr[i].f);
 	}
-
-	// for no buffer
-	//_putchar('%');
-	//_putchar(*(s + 1));
-
-	// for use with buffer
-	//_memcpy(buff, s, 2);
-	//return (NULL);
+	return (0);
 }
