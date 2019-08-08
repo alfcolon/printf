@@ -1,25 +1,17 @@
-#include "holberton.h"
-/**
- * _printf - driver function for printf remake
- * @format: holds text and connversion specifiers
- * @...: variadic arguments
- *
- * Description: checks for errror, prints buff, returns sum
- * Return: sum of bytes written
- */
+#include "printf.h"
+
 int     _printf(const char *format, ...)
 {
-	char    buff[1024];
-	int	printed = 0;
-	va_list list;
+    int         i, printed, len;
+    va_list     list;
 
-	if (!format)
-		return (-1);
-	va_start(list, format);
-	/*set buff elements to 0*/
-	_memset((void *)buff, 0, 1024);
-	/* get # of printed characters from print function */
-	printed = print((char *)format, list, buff);
-	va_end(list);
-	return (printed);
+    len = strlen(format);
+    printed = 0;
+    if (!format)
+        return (-1);
+    va_start(list, format);
+    /* Evaluate each directive in format string */
+    for (i = 0; i < len; printdirective((char *)format, list, &i, &printed));
+    va_end(list);
+    return (printed);
 }
