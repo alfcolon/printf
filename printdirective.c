@@ -3,7 +3,6 @@
 void printdirective(char *format, va_list list, int *i, int *printed)
 {
     int	 j;
-    char c = format[*i];
 
     t_array	arr[] = {
             {"%", cspec_mod},
