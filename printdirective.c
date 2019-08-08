@@ -34,14 +34,14 @@ void printdirective(char *format, va_list list, int *i, int *printed)
     };
     if (issudoku(format, i))
         cspec_sudoku(format);
-    if (format[*i] != '%')
+    else if (format[*i] != '%')
         printtext(format, i, printed);
-    for (j = 0; arr[j].spec; j++)
-    {
-        if (format[*i + 1] == *arr[j].spec)
-        {
-            arr[j].f(format, list, printed, i);
-            break;
+    else {
+        for (j = 0; arr[j].spec; j++) {
+            if (format[*i + 1] == *arr[j].spec) {
+                arr[j].f(format, list, printed, i);
+                break;
+            }
         }
     }
 }

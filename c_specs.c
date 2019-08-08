@@ -9,7 +9,7 @@ int     cspec_d_i(char *format, va_list list, int *printed, int *i)
     /* NULL check */
     if (!n)
     {
-        write(1, "0",1 );
+        write(1, "0",1);
         *printed += 1;
         *i += 2;
         return (1);

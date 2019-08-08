@@ -29,7 +29,6 @@ char *_itoa(int n, char *buff, int base)
 {
     int i, neg;
 
-    printf("\n%d\n", n);
     neg = n < 0 ? 1 : 0;
     if (neg)
         n *= -1;
